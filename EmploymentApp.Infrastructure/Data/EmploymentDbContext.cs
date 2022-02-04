@@ -27,9 +27,9 @@ namespace EmploymentApp.Infrastructure.Data
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserLogin> UserLogin { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+       protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\LocalDBDemo;Initial Catalog=Jobs;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -44,8 +44,8 @@ namespace EmploymentApp.Infrastructure.Serices
                 _authenticationOptions.Issuer,
                 _authenticationOptions.Audience,
                 claims,
-                DateTime.Now,
-                DateTime.UtcNow.AddMinutes(_authenticationOptions.Minutes)
+                DateTime.UtcNow.AddMinutes(_authenticationOptions.Minutes),
+                DateTime.Now
                 );
 
             var token = new JwtSecurityToken(header, payload);
