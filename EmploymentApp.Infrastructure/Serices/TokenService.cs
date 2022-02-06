@@ -44,8 +44,8 @@ namespace EmploymentApp.Infrastructure.Serices
                 _authenticationOptions.Issuer,
                 _authenticationOptions.Audience,
                 claims,
-                DateTime.UtcNow.AddMinutes(_authenticationOptions.Minutes),
-                DateTime.Now
+                DateTime.UtcNow,
+                DateTime.UtcNow.AddMinutes(60000)
                 );
 
             var token = new JwtSecurityToken(header, payload);
@@ -53,8 +53,8 @@ namespace EmploymentApp.Infrastructure.Serices
             return new Token
             {
                 Data = jwtString,
-                DateCreated = DateTime.Now,
-                DateToExpire = DateTime.UtcNow.AddMinutes(_authenticationOptions.Minutes)
+                DateCreated = DateTime.UtcNow,
+                DateToExpire = DateTime.UtcNow.AddMinutes(60000)
             };
         }
     }
